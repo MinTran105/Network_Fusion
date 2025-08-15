@@ -2,22 +2,21 @@ using Fusion;
 using TMPro;
 using UnityEngine;
 
-public class KeyPoint : MonoBehaviour
+public class KeyPoint : NetworkBehaviour
 {
     
-    private bool hasWinner = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hasWinner) return;
+        Debug.Log($"KeyPoint Triggered by: {other.name}");
         if (!other.CompareTag("Player")) return;
-
-        NetworkObject networkObject = other.GetComponent<NetworkObject>();
+       
+        var networkObject = other.GetComponent<PlayerManager>();
         if (networkObject == null) return;
 
-        var player = networkObject.InputAuthority;
+        var player = networkObject.networkObject.InputAuthority;
         if (player == null) return;
-
+        Debug.Log($"Player {player.PlayerId} reached the key point!");
         GameManager.Instance.GameFinished(player.PlayerId.ToString());
     }
 }
