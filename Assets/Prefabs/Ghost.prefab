@@ -453,8 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1455cea6b16cc3147bea16c65043169d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 6613565935369563459}
-  _speed: 15
+  moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _NetworkedDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &8134098197964557788
 MonoBehaviour:
